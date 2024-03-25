@@ -1,1 +1,21 @@
 // TODO
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
+import { readFileSync } from "fs";
+import path from "path";
+import { gql } from "graphql-tag"
+
+const typeDefs = gql(
+    readFileSync(path.resolve(__dirname, "./schema.graphql"),{
+        encoding: "utf-8",
+    })
+)
+
+// fucntion that starts up apollo server
+async function startApolloServer() {
+    const server = new ApolloServer({typeDefs})
+    const {url} = await startStandaloneServer(server) //starting the server
+    console.log(`Server is running ! Query at ${url}`);
+    
+}
+startApolloServer()
