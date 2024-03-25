@@ -1,0 +1,17 @@
+type Query {
+    "Hand picked playlist for all users"
+    featuredPlaylists: [Playlist!]!
+}
+
+"A curated collection of tracks"
+type Playlist{
+    id: ID!
+    name: String!
+    description: String
+}
+type Artist{
+    id: ID
+    name: String
+    birthYear: Int
+    albumNames: [String]
+}
