@@ -5,5 +5,8 @@ export const resolvers: Resolvers = {
         featuredPlaylists: (_, __, { dataSource }) => {
             return dataSource.spotifyAPI.getFeaturedPlaylists();
         },
+        playlist : (_, {id}, {dataSource}) => {
+            return dataSource.spotifyAPI.getPlaylist(id)
+        },
     }
 }
