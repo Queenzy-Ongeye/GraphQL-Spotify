@@ -1,4 +1,5 @@
 import { GraphQLResolveInfo } from 'graphql';
+import { PlaylistModel, TrackModel } from './models';
 import { DataSourceContext } from './context';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -49,11 +50,11 @@ export type QueryPlaylistArgs = {
 
 export type Tracks = {
   __typename?: 'Tracks';
-  durationMs: Scalars['Int']['output'];
+  duration_ms: Scalars['Int']['output'];
   explicit: Scalars['Boolean']['output'];
   id: Scalars['ID']['output'];
   name: Scalars['String']['output'];
-  url: Scalars['String']['output'];
+  uri: Scalars['String']['output'];
 };
 
 
@@ -131,10 +132,10 @@ export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
-  Playlist: ResolverTypeWrapper<Playlist>;
+  Playlist: ResolverTypeWrapper<PlaylistModel>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
-  Tracks: ResolverTypeWrapper<Tracks>;
+  Tracks: ResolverTypeWrapper<TrackModel>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -143,10 +144,10 @@ export type ResolversParentTypes = {
   Boolean: Scalars['Boolean']['output'];
   ID: Scalars['ID']['output'];
   Int: Scalars['Int']['output'];
-  Playlist: Playlist;
+  Playlist: PlaylistModel;
   Query: {};
   String: Scalars['String']['output'];
-  Tracks: Tracks;
+  Tracks: TrackModel;
 };
 
 export type ArtistResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['Artist'] = ResolversParentTypes['Artist']> = {
@@ -171,11 +172,11 @@ export type QueryResolvers<ContextType = DataSourceContext, ParentType extends R
 };
 
 export type TracksResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['Tracks'] = ResolversParentTypes['Tracks']> = {
-  durationMs?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  duration_ms?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   explicit?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  uri?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
