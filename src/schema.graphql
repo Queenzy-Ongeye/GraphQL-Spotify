@@ -10,6 +10,14 @@ type Playlist{
     id: ID!
     name: String!
     description: String
+    tracks: [Tracks!]!
+}
+type Tracks {
+    id: ID!
+    name: String!
+    durationMs: Int!
+    explicit: Boolean!
+    url: String!
 }
 type Artist{
     id: ID
