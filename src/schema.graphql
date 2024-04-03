@@ -15,9 +15,9 @@ type Playlist{
 type Tracks {
     id: ID!
     name: String!
-    durationMs: Int!
+    duration_ms: Int!
     explicit: Boolean!
-    url: String!
+    uri: String!
 }
 type Artist{
     id: ID

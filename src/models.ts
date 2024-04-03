@@ -14,6 +14,6 @@ export type TrackModel = {
     id: string;
     name: string
     explicit: string
-    durationMs: number
-    url: string
+    duration_ms: number
+    uri: string
 }
