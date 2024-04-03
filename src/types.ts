@@ -31,6 +31,7 @@ export type Playlist = {
   description?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   name: Scalars['String']['output'];
+  tracks: Array<Tracks>;
 };
 
 export type Query = {
@@ -44,6 +45,15 @@ export type Query = {
 
 export type QueryPlaylistArgs = {
   id: Scalars['ID']['input'];
+};
+
+export type Tracks = {
+  __typename?: 'Tracks';
+  durationMs: Scalars['Int']['output'];
+  explicit: Scalars['Boolean']['output'];
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
+  url: Scalars['String']['output'];
 };
 
 
@@ -124,6 +134,7 @@ export type ResolversTypes = {
   Playlist: ResolverTypeWrapper<Playlist>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
+  Tracks: ResolverTypeWrapper<Tracks>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -135,6 +146,7 @@ export type ResolversParentTypes = {
   Playlist: Playlist;
   Query: {};
   String: Scalars['String']['output'];
+  Tracks: Tracks;
 };
 
 export type ArtistResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['Artist'] = ResolversParentTypes['Artist']> = {
@@ -149,6 +161,7 @@ export type PlaylistResolvers<ContextType = DataSourceContext, ParentType extend
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  tracks?: Resolver<Array<ResolversTypes['Tracks']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -157,9 +170,19 @@ export type QueryResolvers<ContextType = DataSourceContext, ParentType extends R
   playlist?: Resolver<Maybe<ResolversTypes['Playlist']>, ParentType, ContextType, RequireFields<QueryPlaylistArgs, 'id'>>;
 };
 
+export type TracksResolvers<ContextType = DataSourceContext, ParentType extends ResolversParentTypes['Tracks'] = ResolversParentTypes['Tracks']> = {
+  durationMs?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  explicit?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type Resolvers<ContextType = DataSourceContext> = {
   Artist?: ArtistResolvers<ContextType>;
   Playlist?: PlaylistResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  Tracks?: TracksResolvers<ContextType>;
 };
 
