@@ -17,3 +17,8 @@ export type TrackModel = {
     duration_ms: number
     uri: string
 }
+
+export type SnapshotOrError = {
+    snapshot_id ?: string
+    error?: string
+}
