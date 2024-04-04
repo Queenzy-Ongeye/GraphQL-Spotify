@@ -33,3 +33,11 @@ type Mutation{
     ): AddItemsToPlaylistPayload!
 }
 
+type AddItemsToPlaylistPayload{
+    "Similar ro HTTP status code"
+    code: Int!
+    success: Boolean! "Indicated whether the mutation was successful"
+    message: String! "Human-readable message for the UI"
+    playlist: Playlist "Newly added items"
+}
+
