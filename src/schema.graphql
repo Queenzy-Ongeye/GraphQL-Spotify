@@ -41,3 +41,7 @@ type AddItemsToPlaylistPayload{
     playlist: Playlist "Newly added items"
 }
 
+input AddItemsToPlaylistInput{
+    playlistId: ID!
+    uris: [String!]!
+}
