@@ -25,3 +25,11 @@ type Artist{
     birthYear: Int
     albumNames: [String]
 }
+
+# Mutation section
+type Mutation{
+    addItemsToPlaylist (
+        input: AddItemsToPlaylistInput!
+    ): AddItemsToPlaylistPayload!
+}
+
