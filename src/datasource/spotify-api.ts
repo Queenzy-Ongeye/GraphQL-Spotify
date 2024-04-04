@@ -14,4 +14,8 @@ export class SpotifyAPI extends RESTDataSource {
     getPlaylist(playlistId: string): Promise<PlaylistModel>{
       return this.get(`playlists/${playlistId}`)
     }
+    addItemsToPlaylist(input: {playlistId: string, uris: string[]}){
+      const {playlistId, uris} = input
+      return this.post(`playlist/${playlistId}/tracks`)
+    }
 }
