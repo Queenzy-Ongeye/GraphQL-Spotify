@@ -26,5 +26,8 @@ export const resolvers: Resolvers = {
             const {items = [] } = tracks
             return items.map(({track}) => track);
         }
+    },
+    Tracks :{
+        duration_ms: (parent) => parent.duration_ms
     }
 }
