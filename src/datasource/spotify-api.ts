@@ -16,6 +16,10 @@ export class SpotifyAPI extends RESTDataSource {
     }
     addItemsToPlaylist(input: {playlistId: string, uris: string[]}){
       const {playlistId, uris} = input
-      return this.post(`playlist/${playlistId}/tracks`)
+      return this.post(`playlists/${playlistId}/tracks`, {
+        params:{
+          uris: uris.join(",")
+        }
+      })
     }
 }
