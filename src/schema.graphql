@@ -27,21 +27,25 @@ type Artist{
 }
 
 # Mutation section
-type Mutation{
-    addItemsToPlaylist (
-        input: AddItemsToPlaylistInput!
-    ): AddItemsToPlaylistPayload!
+type Mutation {
+  "Add one or more items to a user's playlist."
+  addItemsToPlaylist(input: AddItemsToPlaylistInput!): AddItemsToPlaylistPayload!
 }
 
-type AddItemsToPlaylistPayload{
-    "Similar ro HTTP status code"
-    code: Int!
-    success: Boolean! "Indicated whether the mutation was successful"
-    message: String! "Human-readable message for the UI"
-    playlist: Playlist "Newly added items"
+type AddItemsToPlaylistPayload {
+  "Similar to HTTP status code, represents the status of the mutation"
+  code: Int!
+  "Indicates whether the mutation was successful"
+  success: Boolean!
+  "Human-readable message for the UI"
+  message: String!
+  "The playlist that contains the newly added items"
+  playlist: Playlist
 }
 
-input AddItemsToPlaylistInput{
-    playlistId: ID!
-    uris: [String!]!
+input AddItemsToPlaylistInput {
+  "The ID of the playlist."
+  playlistId: ID!
+  "A comma-separated list of Spotify URIs to add."
+  uris: [String!]!
 }
